@@ -1,0 +1,142 @@
+---
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-zinc-950/80 backdrop-blur-xl"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 group" aria-label="Drake's Workshop Home">
+        <div
+          class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <span class="font-bold text-white tracking-tight">
+          Drake's <span class="text-blue-400">Workshop</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <a
+          href="/#apps"
+          class="px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-150"
+        >
+          Apps
+        </a>
+        <a
+          href="/#contact"
+          class="px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-150"
+        >
+          Contact
+        </a>
+        <a
+          href="/privacy"
+          class="px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-150"
+        >
+          Privacy
+        </a>
+      </nav>
+
+      <!-- CTA -->
+      <a
+        href="/#apps"
+        class="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/20 hover:shadow-blue-500/30"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-3.5 h-3.5"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M3.18 23.76c.3.17.64.24.99.2l13.43-9.76-2.93-2.93L3.18 23.76zM.48 1.13C.18 1.45 0 1.94 0 2.58v18.84c0 .64.18 1.13.48 1.45l.08.07 10.55-10.55v-.25L.56 1.06.48 1.13zM22.37 10.2l-2.99-1.73-3.36 3.36 3.36 3.36 3.01-1.73c.86-.49.86-1.27-.02-1.76l-.01.5zM4.17.24L17.6 9.99l-2.93 2.93-10.5-12.6c-.35-.41-.35-1.08 0-1.08z"
+          ></path>
+        </svg>
+        Google Play
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden pb-4 border-t border-white/5 mt-1 pt-3"
+      aria-label="Mobile navigation"
+    >
+      <div class="flex flex-col gap-1">
+        <a
+          href="/#apps"
+          class="px-3 py-2.5 rounded-lg text-sm text-zinc-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          Apps
+        </a>
+        <a
+          href="/#contact"
+          class="px-3 py-2.5 rounded-lg text-sm text-zinc-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          Contact
+        </a>
+        <a
+          href="/privacy"
+          class="px-3 py-2.5 rounded-lg text-sm text-zinc-300 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          Privacy Policy
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

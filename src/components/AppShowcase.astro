@@ -1,0 +1,205 @@
+---
+interface App {
+  name: string;
+  tagline: string;
+  description: string;
+  category: string;
+  badge: string;
+  badgeStyle: 'orange' | 'blue' | 'purple' | 'green';
+  icon: string;
+  status: 'Live' | 'Beta' | 'Coming Soon';
+  features: string[];
+  playUrl: string;
+}
+
+const apps: App[] = [
+  {
+    name: 'Arena Clash',
+    tagline: 'Fast-paced mobile battle game',
+    description:
+      'An immersive mobile gaming experience packed with action, strategy, and competitive play. Challenge players worldwide in real-time arena battles with deep mechanics and stunning visuals.',
+    category: 'Gaming',
+    badge: 'Game',
+    badgeStyle: 'orange',
+    icon: '🎮',
+    status: 'Live',
+    features: ['Real-time multiplayer', 'Offline mode', 'No pay-to-win'],
+    playUrl: '#',
+  },
+  {
+    name: 'WorkFind',
+    tagline: 'Your next opportunity, simplified',
+    description:
+      'A clean, web-based job board application that connects job seekers with local and remote opportunities. Browse listings, save favourites, and apply directly — all from your Android device.',
+    category: 'Productivity',
+    badge: 'Web App',
+    badgeStyle: 'blue',
+    icon: '💼',
+    status: 'Live',
+    features: ['Remote & local jobs', 'One-tap apply', 'Job alerts'],
+    playUrl: '#',
+  },
+];
+
+const badgeStyles = {
+  orange: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+  blue: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  purple: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+  green: 'bg-green-500/10 text-green-400 border-green-500/20',
+};
+---
+
+<section id="apps" class="relative py-28">
+  <!-- Subtle divider glow -->
+  <div
+    class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="font-mono text-sm text-blue-400 uppercase tracking-widest mb-3">
+        // Our Projects
+      </p>
+      <h2 class="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
+        App Showcase
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        Every product is built with care — designed for real users, tested for real devices.
+      </p>
+    </div>
+
+    <!-- App cards grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+      {
+        apps.map((app) => (
+          <article class="group relative rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 p-7 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/8 flex flex-col">
+            <!-- Top row: badge + status -->
+            <div class="flex items-center justify-between mb-6">
+              <span
+                class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${badgeStyles[app.badgeStyle]}`}
+              >
+                {app.badge}
+              </span>
+              <span
+                class={`inline-flex items-center gap-1.5 text-xs font-medium ${app.status === 'Live' ? 'text-green-400' : app.status === 'Beta' ? 'text-yellow-400' : 'text-zinc-500'}`}
+              >
+                <span
+                  class={`w-1.5 h-1.5 rounded-full ${app.status === 'Live' ? 'bg-green-400' : app.status === 'Beta' ? 'bg-yellow-400' : 'bg-zinc-500'}`}
+                  aria-hidden="true"
+                />
+                {app.status}
+              </span>
+            </div>
+
+            <!-- Icon + name -->
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="text-4xl w-14 h-14 rounded-xl bg-zinc-800 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200"
+                aria-hidden="true"
+              >
+                {app.icon}
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-200">
+                  {app.name}
+                </h3>
+                <p class="text-zinc-500 text-sm">{app.tagline}</p>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-zinc-400 text-sm leading-relaxed mb-5 flex-1">{app.description}</p>
+
+            <!-- Features -->
+            <ul class="flex flex-wrap gap-2 mb-6" aria-label={`${app.name} features`}>
+              {app.features.map((f) => (
+                <li class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-400 text-xs">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-3 h-3 text-blue-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <a
+              href={app.playUrl}
+              class="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group/link"
+              aria-label={`View ${app.name} on Google Play`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M3.18 23.76c.3.17.64.24.99.2l13.43-9.76-2.93-2.93L3.18 23.76zM.48 1.13C.18 1.45 0 1.94 0 2.58v18.84c0 .64.18 1.13.48 1.45l.08.07 10.55-10.55v-.25L.56 1.06.48 1.13zM22.37 10.2l-2.99-1.73-3.36 3.36 3.36 3.36 3.01-1.73c.86-.49.86-1.27-.02-1.76zM4.17.24L17.6 9.99l-2.93 2.93L4.17.24z" />
+              </svg>
+              View on Google Play
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Coming soon card -->
+    <div class="max-w-5xl mx-auto">
+      <div
+        class="rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/40 p-8 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left"
+      >
+        <div
+          class="w-14 h-14 rounded-xl bg-zinc-800/80 flex items-center justify-center flex-shrink-0"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 text-zinc-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">More apps in the pipeline</h3>
+          <p class="text-zinc-500 text-sm">
+            New projects are always in development at the workshop. Follow us on Google Play to be
+            notified first.
+          </p>
+        </div>
+        <a
+          href="#contact"
+          class="sm:ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white text-sm font-medium transition-colors whitespace-nowrap"
+        >
+          Stay Updated
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
