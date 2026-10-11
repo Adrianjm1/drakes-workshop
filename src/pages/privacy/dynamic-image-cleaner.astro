@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const effectiveDate = 'October 11, 2026';
+const contactEmail = 'adrianmolina39@gmail.com';
+const developerName = "Drake's Workshop";
+const appName = 'Dynamic Image Cleaner';
+
+interface Section {
+  id: string;
+  title: string;
+  paragraphs?: string[];
+  items?: string[];
+}
+
+const sections: Section[] = [
+  {
+    id: 'access',
+    title: 'What the app accesses',
+    paragraphs: [
+      `${appName} asks for permission to access the photos on your device. It uses this access only to:`,
+    ],
+    items: [
+      'Show your photos so you can decide which ones to keep or delete',
+      "Delete the photos you mark, after you confirm the deletion in the app and in Android's own confirmation dialog",
+    ],
+  },
+  {
+    id: 'storage',
+    title: 'What the app stores',
+    paragraphs: [
+      'The app saves, only on your device, the internal IDs of the photos you chose to keep, so they are not shown to you again. This list never leaves your device and is removed when you uninstall the app or use "Start over".',
+    ],
+  },
+  {
+    id: 'not-collected',
+    title: 'What the app does not do',
+    items: [
+      'It does not upload, copy or send your photos anywhere',
+      'It does not collect personal information, contacts, location or usage data',
+      'It does not use analytics, advertising or tracking services',
+      'It does not require an account',
+      'It does not share any data with third parties',
+    ],
+  },
+  {
+    id: 'deleted',
+    title: 'Deleted photos',
+    paragraphs: [
+      "Photos are deleted using Android's system media store. Depending on your device, deleted photos may be kept in the system trash for a limited time before being removed permanently.",
+    ],
+  },
+  {
+    id: 'children',
+    title: 'Children',
+    paragraphs: [
+      'The app is not directed at children under 13 and does not knowingly collect information from anyone.',
+    ],
+  },
+  {
+    id: 'changes',
+    title: 'Changes to this policy',
+    paragraphs: [
+      'If this policy changes, the updated version will be published at this same address with a new effective date.',
+    ],
+  },
+];
+
+const sectionsEs: Section[] = [
+  {
+    id: 'es-access',
+    title: 'A qué accede la app',
+    paragraphs: [`${appName} pide permiso para acceder a las fotos de tu dispositivo. Usa ese acceso solo para:`],
+    items: [
+      'Mostrarte tus fotos para que decidas cuáles conservar o borrar',
+      'Borrar las fotos que marques, después de que confirmes el borrado en la app y en el aviso de confirmación de Android',
+    ],
+  },
+  {
+    id: 'es-storage',
+    title: 'Qué guarda la app',
+    paragraphs: [
+      'La app guarda, solo en tu dispositivo, los identificadores internos de las fotos que decidiste conservar, para no volver a mostrártelas. Esta lista nunca sale de tu dispositivo y se elimina al desinstalar la app o al usar "Empezar de nuevo".',
+    ],
+  },
+  {
+    id: 'es-not-collected',
+    title: 'Qué no hace la app',
+    items: [
+      'No sube, copia ni envía tus fotos a ningún sitio',
+      'No recoge información personal, contactos, ubicación ni datos de uso',
+      'No usa servicios de analítica, publicidad ni rastreo',
+      'No necesita cuenta',
+      'No comparte datos con terceros',
+    ],
+  },
+  {
+    id: 'es-deleted',
+    title: 'Fotos borradas',
+    paragraphs: [
+      'Las fotos se borran mediante el almacén de medios del sistema Android. Según tu dispositivo, las fotos borradas pueden quedar en la papelera del sistema durante un tiempo antes de eliminarse definitivamente.',
+    ],
+  },
+  {
+    id: 'es-children',
+    title: 'Menores',
+    paragraphs: ['La app no está dirigida a menores de 13 años y no recoge información de nadie.'],
+  },
+  {
+    id: 'es-changes',
+    title: 'Cambios en esta política',
+    paragraphs: [
+      'Si esta política cambia, la nueva versión se publicará en esta misma dirección con una fecha nueva.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`Privacy Policy — ${appName}`}
+  description={`Privacy Policy for ${appName} by ${developerName}. Your photos never leave your device.`}
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <!-- Header -->
+        <div class="mb-12">
+          <a
+            href="/privacy"
+            class="flex w-fit items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300 transition-colors mb-8"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            All privacy policies
+          </a>
+
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400 text-xs font-medium mb-5"
+          >
+            Legal Document · {appName}
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
+            Privacy Policy
+          </h1>
+          <p class="text-zinc-400 text-lg">
+            <strong class="text-zinc-200">{appName}</strong> is developed by
+            <strong class="text-zinc-200">{developerName}</strong>. In short: your photos never leave
+            your device, and the app collects no personal data.
+          </p>
+          <p class="text-zinc-500 text-sm mt-4">
+            <strong class="text-zinc-400">Effective Date:</strong>
+            {effectiveDate}
+            <span class="mx-2">·</span>
+            <a href="#es" class="text-blue-400 hover:text-blue-300 transition-colors">Leer en español</a>
+          </p>
+        </div>
+
+        <div class="h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mb-12" aria-hidden="true"></div>
+
+        <!-- English -->
+        <div class="space-y-10 text-zinc-400 leading-relaxed">
+          {
+            sections.map((section, i) => (
+              <section aria-labelledby={`section-${section.id}`}>
+                <h2 id={`section-${section.id}`} class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span class="text-blue-400 font-mono text-base">{String(i + 1).padStart(2, '0')}.</span>
+                  {section.title}
+                </h2>
+                {section.paragraphs?.map((p) => <p class="mt-3 first:mt-0">{p}</p>)}
+                {section.items && (
+                  <ul class="mt-3 space-y-2 list-none pl-0">
+                    {section.items.map((item) => (
+                      <li class="flex items-start gap-2.5">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          aria-hidden="true"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))
+          }
+        </div>
+
+        <!-- Spanish -->
+        <div class="h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent my-14" aria-hidden="true"></div>
+
+        <div id="es" class="mb-10">
+          <h2 class="text-3xl font-black text-white tracking-tight">Política de privacidad</h2>
+          <p class="text-zinc-400 mt-3">
+            En resumen: tus fotos nunca salen de tu dispositivo y la app no recoge datos personales.
+          </p>
+          <p class="text-zinc-500 text-sm mt-3">
+            <strong class="text-zinc-400">Fecha de vigencia:</strong> 11 de octubre de 2026
+          </p>
+        </div>
+
+        <div class="space-y-10 text-zinc-400 leading-relaxed">
+          {
+            sectionsEs.map((section, i) => (
+              <section aria-labelledby={`section-${section.id}`}>
+                <h3 id={`section-${section.id}`} class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span class="text-blue-400 font-mono text-base">{String(i + 1).padStart(2, '0')}.</span>
+                  {section.title}
+                </h3>
+                {section.paragraphs?.map((p) => <p class="mt-3 first:mt-0">{p}</p>)}
+                {section.items && (
+                  <ul class="mt-3 space-y-2 list-none pl-0">
+                    {section.items.map((item) => (
+                      <li class="flex items-start gap-2.5">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          aria-hidden="true"
+                        >
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))
+          }
+        </div>
+
+        <!-- Contact -->
+        <div class="mt-14 rounded-xl bg-zinc-900 border border-zinc-800 p-5 flex items-start gap-4">
+          <div
+            class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-zinc-200 font-semibold text-sm">Contact · Contacto</p>
+            <a
+              href={`mailto:${contactEmail}`}
+              class="text-blue-400 hover:text-blue-300 text-sm transition-colors mt-0.5 block"
+            >
+              {contactEmail}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
